@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Vokabeltrainer</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+    #container {
+      display: flex;
+      height: 100vh;
+    }
+    #sidebar {
+      width: 210px;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid #ccc;
+    }
+    #menu-frame {
+      flex: 1;
+      border: none;
+      width: 100%;
+    }
+    #ton-frame {
+      height: 30px;
+      border: none;
+      width: 100%;
+    }
+    #main-frame {
+      flex: 1;
+      border: none;
+      width: 100%;
+    }
+  </style>
+  <script src="text/daten.js"></script>
+  <script src="programme/sprachmodule.js"></script>
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      if (sprache2 == "franzoesisch") sprache2 = "französisch";
+      if (sprache2 == "niederlaendisch") sprache2 = "niederländisch";
+      if (sprache2 == "rumaenisch") sprache2 = "rumänisch";
+      if (sprache2 == "tuerkisch") sprache2 = "türkisch";
+      if (sprache2 == "daenisch") sprache2 = "dänisch";
+      if (sprache2 == "hebraeisch") sprache2 = "hebräisch";
+      if (sprache2 == "islaendisch") sprache2 = "isländisch";
+      if (sprache2 == "aegyptisch") sprache2 = "ägyptisch";
+      if (sprache2 == "suedamerika") sprache2 = "Spanisch-Südamerika";
+      if (sprache2 == "weissrussisch") sprache2 = "weißrussisch";
+
+      let titletext = sprache2 + spracheintrag_menu[42];
+      if (sprachkuerzel.includes("2")) titletext = sprache2 + spracheintrag_menu[43];
+      if (sprachkuerzel.includes("3")) titletext = sprache2 + spracheintrag_menu[44];
+      if (sprachkuerzel.includes("4")) titletext = sprache2 + spracheintrag_menu[61];
+      if (sprachkuerzel.includes("4a")) titletext = sprache2 + "-Ausbildungs-Spezialwortschatz-Vokabeltrainer";
+      if (sprachkuerzel.includes("4b")) titletext = sprache2 + "-Spezialwortschatz-Vokabeltrainer \"Gastronomie und Tourismus\"";
+      if (sprachkuerzel.includes("4e")) titletext = sprache2 + "-Spezialwortschatz-Vokabeltrainer Auto";
+      if (sprachkuerzel.includes("4g")) titletext = sprache2 + "-Flirten-Spezialwortschatz-Vokabeltrainer";
+      if (sprachkuerzel.includes("4h")) titletext = sprache2 + "-Auswandern-Spezialwortschatz-Vokabeltrainer";
+      if (sprachkuerzel.includes("4i")) titletext = sprache2 + "-Spezialwortschatz-Vokabeltrainer \"Natur und Geographie\"";
+      if (sprachkuerzel.includes("4j")) titletext = sprache2 + "-Spezialwortschatz-Vokabeltrainer \"Au Pair\"";
+      if (sprachkuerzel.includes("4k")) titletext = sprache2 + "-Spezialwortschatz-Vokabeltrainer \"Sport und Fitness\"";
+      if (sprachkuerzel.includes("5a")) titletext = sprache2 + spracheintrag_menu[45] + " I";
+      if (sprachkuerzel.includes("5b")) titletext = sprache2 + spracheintrag_menu[45] + " II";
+      if (sprachkuerzel.includes("5c")) titletext = sprache2 + spracheintrag_menu[45] + " III";
+      if (sprachkuerzel.includes("6")) titletext = sprache2 + "-Grammatikkurs & Grammatik-Trainer";
+
+      if (sprache2 == "latein") titletext = "Latein-Vokabeltrainer";
+      titletext = titletext.charAt(0).toUpperCase() + titletext.slice(1);
+      document.title = titletext;
+    });
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div id="sidebar">
+      <iframe id="menu-frame" src="menu/lektion1.html" name="menu"></iframe>
+      <iframe id="ton-frame" src="menu/ton.html" name="ton"></iframe>
+    </div>
+    <iframe id="main-frame" src="extras/lektionsauswahl.html" name="rahmen1"></iframe>
+  </div>
+</body>
+</html>
